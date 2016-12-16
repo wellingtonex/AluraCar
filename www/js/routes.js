@@ -10,7 +10,7 @@ angular.module('starter')
     controller: 'ListagemController'
   })
   .state('detalhe', {
-    url: '/detalhe',
+    url: '/detalhe/:carro',
     templateUrl: 'templates/detalhe.html',
     controller: 'DetalheController'
   });
