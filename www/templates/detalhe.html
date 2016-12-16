@@ -6,10 +6,10 @@
 		    Ótima escolha
 		  </div>
 		  <div class="item item-text-wrap">
-              {{carro}}
+              {{carro.nome}}
 		  </div>
 		  <div class="item item-divider">
-		    Preço: R$50.000
+		    Preço: R{{carro.preco | currency}}
 		  </div>
 		</div>
 	</ion-content>
