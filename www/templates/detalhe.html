@@ -1,16 +1,51 @@
 <ion-view>
-	<ion-nav-title>Carro escolhido</ion-nav-title>
-	<ion-content>
-		<div class="card">
-		  <div class="item item-divider">
-		    Ótima escolha
-		  </div>
-		  <div class="item item-text-wrap">
-              {{carro.nome}}
-		  </div>
-		  <div class="item item-divider">
-		    Preço: R{{carro.preco | currency}}
-		  </div>
-		</div>
-	</ion-content>
+    <ion-nav-title>Carro escolhido</ion-nav-title>
+    <ion-content>
+        <div class="card">
+            <div class="item item-divider">
+                Ótima escolha
+            </div>
+            <div class="item item-text-wrap">
+                {{carro.nome}}
+                <ul class="list">
+                    <li ng-repeat="acessorio in acessorios" class="item item-toggle">
+                        {{acessorio.nome}} - R{{acessorio.preco | currency}}
+                        <label class="toggle toggle-assertive">
+                    <input type="checkbox" ng-model="isMarcado" ng-click="changeItem(acessorio,isMarcado)">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                    </label>
+                    </li>
+                </ul>
+
+                <!--<ion-item ng-repeat="acessorio in acessorios">
+                <ion-label class="block"> {{acessorio.nome}} - R{{acessorio.preco | currency}} </ion-label>
+                <ion-toggle disabled checked="false" ng-model="isMarcado" ng-click="changeItem(acessorio,isMarcado)"></ion-toggle>
+            </ion-item>-->
+
+            </div>
+
+            <!--exemplo interessante de card-->
+            <!--<div class="list card">
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-home"></i> Endereço
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-ios-telephone"></i> Telefone
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-card"></i> Enter card information
+                </a>
+
+            </div>-->
+
+            <div class="item item-divider">
+                Preço: R{{carro.preco | currency}}
+            </div>
+        </div>
+    </ion-content>
 </ion-view>
