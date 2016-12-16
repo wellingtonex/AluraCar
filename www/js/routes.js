@@ -13,6 +13,11 @@ angular.module('starter')
     url: '/detalhe/:carro',
     templateUrl: 'templates/detalhe.html',
     controller: 'DetalheController'
+  })
+  .state('finalizaPedido', {
+    url: '/finalizaPedido/:carro',
+    templateUrl: 'templates/finalizaPedido.html',
+    controller: 'FinalizaPedidoController'
   });
   
 });

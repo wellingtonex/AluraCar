@@ -20,9 +20,9 @@
                 </ul>
 
                 <!--<ion-item ng-repeat="acessorio in acessorios">
-                <ion-label class="block"> {{acessorio.nome}} - R{{acessorio.preco | currency}} </ion-label>
-                <ion-toggle disabled checked="false" ng-model="isMarcado" ng-click="changeItem(acessorio,isMarcado)"></ion-toggle>
-            </ion-item>-->
+                    <ion-label class="block"> {{acessorio.nome}} - R{{acessorio.preco | currency}} </ion-label>
+                    <ion-toggle disabled checked="false" ng-model="isMarcado" ng-click="changeItem(acessorio,isMarcado)"></ion-toggle>
+                </ion-item>-->
 
             </div>
 
@@ -47,5 +47,6 @@
                 Preço: R{{carro.preco | currency}}
             </div>
         </div>
+        <a class="button button-positive button-full" href="#/finalizaPedido/{{carro}}">Finalizar pedido</a>
     </ion-content>
 </ion-view>
