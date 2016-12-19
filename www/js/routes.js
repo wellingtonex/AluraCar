@@ -37,8 +37,8 @@ angular.module('starter')
     url: '/perfil',
     views : {
       'menuContent': {
-        templateUrl: 'templates/perfil.html'
-        //controller: 'PerfilController'
+        templateUrl: 'templates/perfil.html',
+        controller: 'PerfilController'
       }
     }
   })
