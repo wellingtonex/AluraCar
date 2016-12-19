@@ -4,10 +4,19 @@ angular.module('starter')
   $urlRouterProvider.otherwise('/login');
 
   $stateProvider
-  .state('listagem', {
+  .state('app', {
+    url : '/app',
+    templateUrl : 'templates/menu.html',
+    abstract: true
+  })
+  .state('app.listagem', {
     url: '/listagem',
-    templateUrl: 'templates/listagem.html',
-    controller: 'ListagemController'
+    views : {
+      'menuContent': {
+        templateUrl: 'templates/listagem.html',
+        controller: 'ListagemController'
+      }
+    }
   })
   .state('detalhe', {
     url: '/detalhe/:carro',
@@ -23,6 +32,5 @@ angular.module('starter')
     url : '/login',
     templateUrl : 'templates/login.html',
     controller : 'LoginController'
-  })
-  
+  })  
 });

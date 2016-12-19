@@ -16,7 +16,7 @@ angular.module('starter')
         
 
         CarroService.login(dadosDoLogin).then(function(dados) {
-            $state.go('listagem');
+            $state.go('app.listagem');
         }, function(error) {
             $ionicPopup.alert({
                 title: 'Opa',
