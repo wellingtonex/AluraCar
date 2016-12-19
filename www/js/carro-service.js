@@ -12,9 +12,12 @@ angular.module('starter')
             });
         },
         salvarPedido : function (pedido){
-            return $http.get(url + "salvarPedido", pedido).then(function(response){
+            return $http.get(url + 'salvarPedido', pedido).then(function(response){
                 return "Deu certo."
             });
+        },
+        login : function (dados) {
+            return $http.get(url + 'login', dados);
         }
     }
 
