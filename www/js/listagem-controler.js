@@ -6,7 +6,6 @@ angular.module('starter')
 		
 	}, function(dados) {
 		$scope.carros = dados;
-		console.log(dados);		
 	});
 
 
