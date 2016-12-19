@@ -33,5 +33,13 @@ angular.module('starter')
     url : '/login',
     templateUrl : 'templates/login.html',
     controller : 'LoginController'
-  })  
+  }).state('app.perfil', {
+    url: '/perfil',
+    views : {
+      'menuContent': {
+        templateUrl: 'templates/perfil.html'
+        //controller: 'PerfilController'
+      }
+    }
+  })
 });
