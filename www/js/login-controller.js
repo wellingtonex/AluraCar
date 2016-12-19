@@ -1,5 +1,5 @@
 angular.module('starter')
-.controller('LoginController', function($scope, CarroService, $ionicPopup, $state){
+.controller('LoginController', function($scope, CarroService, $ionicPopup, $state, $rootScope){
 
 	$scope.usuario = {};
 
@@ -12,10 +12,10 @@ angular.module('starter')
 			}
 		}
         
-        console.log(dadosDoLogin);
-        
-
         CarroService.login(dadosDoLogin).then(function(dados) {
+            console.log(dados.data.usuario);
+            
+            $rootScope.usuario = dados.data.usuario;
             $state.go('app.listagem');
         }, function(error) {
             $ionicPopup.alert({
