@@ -13,3 +13,16 @@ bower install --save angular-br-filters
 ou 
 
 npm install --save angular-br-filters
+
+ionic platforms add android
+ionic build android
+ionic run android --device
+
+probliema com 404 nas requisições http
+Had a same problem, nothing helped, then i just removed the whitelist plugin:
+
+cordova plugin remove cordova-plugin-whitelist
+
+then renstalled it
+
+cordova plugin add cordova-plugin-whitelist

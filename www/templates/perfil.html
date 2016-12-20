@@ -7,15 +7,19 @@
             <div class="item item-body">
                 <div class="list">
                     <label class="item item-input">
-                        <span class="input-label">{{usuario.dataNascimento}}</span>
+                        <span ng-hide="editando"  class="input-label">{{usuario.dataNascimento}}</span>
+                        <input type="text" ng-show="editando" ng-model="usuario.dataNascimento">
                     </label>
                     <label class="item item-input">
-                        <span class="input-label">{{usuario.telefone | brPhoneNumber}}</span>
+                        <span ng-hide="editando" class="input-label">{{usuario.telefone | brPhoneNumber}}</span>
+                        <input type="text" ng-show="editando" ng-model="usuario.telefone">
                     </label>
                     <label class="item item-input">
-                        <span class="input-label">{{usuario.email}}</span>
+                        <span ng-hide="editando" class="input-label">{{usuario.email}}</span>
+                        <input type="text" ng-show="editando" ng-model="usuario.email">
                     </label>
-                    <button class="button button-full button-positive">Editar</button>
+                    <button ng-hide="editando" ng-click="editar()" class="button button-full button-positive">Editar</button>
+                    <button ng-show="editando" ng-click="salvar()" class="button button-full button-positive">Salvar</button>
                 </div>
             </div>
         </div>

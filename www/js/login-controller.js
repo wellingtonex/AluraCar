@@ -12,15 +12,16 @@ angular.module('starter')
 			}
 		}
         
-        CarroService.login(dadosDoLogin).then(function(dados) {
-            console.log(dados.data.usuario);
+        CarroService.login(dadosDoLogin).then(function(dados) {            
             
             $rootScope.usuario = dados.data.usuario;
             $state.go('app.listagem');
         }, function(error) {
+            console.log(error);
+            
             $ionicPopup.alert({
                 title: 'Opa',
-                template: 'Email ou senha invalidos.'
+                template: 'Message: ' + error.data.mensagem + '\n Status: ' + error.status 
                 });
         });
 	}
