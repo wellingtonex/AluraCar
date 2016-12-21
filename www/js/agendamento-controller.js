@@ -1,4 +1,4 @@
-angular.module('starter').controller('AgendamentoController', function($scope, DatabaseValues) {
+angular.module('starter').controller('AgendamentoController', function($scope, DatabaseValues,          CarroService, $ionicPopup) {
 
     $scope.agendamentos = [];
     DatabaseValues.setup();
@@ -7,7 +7,44 @@ angular.module('starter').controller('AgendamentoController', function($scope, D
             for(var i = 0; i < resultado.rows.length; i++){
                 $scope.agendamentos.push(resultado.rows[i]);
             }
-            console.log($scope.agendamentos);            
         });
     });
+
+    $scope.reenviar = function(agendamento) {
+        var agendamentoFinalizado = {
+            params : {
+                nome: agendamento.nome,
+                endereco: agendamento.endereco,
+                email: agendamento.email,
+                carro: agendamento.modelo,
+                preco: agendamento.preco
+
+            }
+        };
+
+        CarroService.salvarPedido(agendamentoFinalizado).then(function(dados){
+
+        DatabaseValues.setup();
+        DatabaseValues.bancoDeDados.transaction(function(transacao){
+            transacao.executeSql("UPDATE agendamentos SET confirmado = 'true' WHERE id = ? ", [agendamento.id])
+        })
+
+        $ionicPopup.alert({
+            title : 'Parabens',
+            template : 'Seu agendamento foi confirmado com sucesso'
+        }).then(function() {
+             $state.go($state.current, {}, {reload: true})
+        });
+
+
+        }, function(erro){
+
+        $ionicPopup.alert({
+            title : 'Ops!',
+            template : 'O servidor continua com erro. Tente mais tarde'
+        })
+
+        })
+        
+    }
 });
