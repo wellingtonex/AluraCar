@@ -1,5 +1,7 @@
 podemos tambem utilizar 
 
+ionic serve --lab
+
 ionic start nome_do_projeto blank
 ionic start nome_do_projeto tabs
 ionic start nome_do_projeto sidemenu
@@ -26,3 +28,7 @@ cordova plugin remove cordova-plugin-whitelist
 then renstalled it
 
 cordova plugin add cordova-plugin-whitelist
+
+ionic run android --device
+
+bower install ionic-datepicker --save

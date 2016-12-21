@@ -22,6 +22,11 @@
                         <span class="input-label">Email</span>
                         <input ng-model="pedido.email" type="text">
                     </label>
+
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Data do Agendamento</span>
+                        <input type="text"  ng-focus="abrirPopupCalendario()" ng-model="dataFormatada">
+                    </label>
                 </div>                                
             </div>
         </div>
