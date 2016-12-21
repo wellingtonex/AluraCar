@@ -49,5 +49,13 @@ angular.module('starter')
         controller: 'PerfilController'
       }
     }
+  }).state('app.agendamentos', {
+    url : '/agendamentos',
+    views : {
+        'menuContent' : {
+            templateUrl : 'templates/agendamentos.html',
+            controller : 'AgendamentoController'
+        }
+    }
   })
 });
