@@ -19,15 +19,23 @@ angular.module('starter')
       }
     }
   })
-  .state('detalhe', {
+  .state('app.detalhe', {
     url: '/detalhe/:carro',
-    templateUrl: 'templates/detalhe.html',
-    controller: 'DetalheController'
+    views : {
+      'menuContent': {
+        templateUrl: 'templates/detalhe.html',
+        controller: 'DetalheController'
+      }
+    }
   })
-  .state('finalizaPedido', {
+  .state('app.finalizaPedido', {
     url: '/finalizaPedido/:carro',
-    templateUrl: 'templates/finalizaPedido.html',
-    controller: 'FinalizaPedidoController'
+    views : {
+      'menuContent': {
+        templateUrl: 'templates/finalizaPedido.html',
+        controller: 'FinalizaPedidoController'
+      }
+    }    
   })
   .state('login', {
     url : '/login',

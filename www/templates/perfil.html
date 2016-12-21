@@ -3,6 +3,8 @@
         <div class="list card">
             <div class="item item-avatar">
                 {{usuario.nome}}
+                <img ng-src="{{caminhoFoto}}">
+                <button ng-click="tirarFoto()" ng-show="editando" class="button button-full button-positive">Tirar foto</button>
             </div>
             <div class="item item-body">
                 <div class="list">

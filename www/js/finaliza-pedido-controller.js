@@ -1,8 +1,8 @@
 angular
     .module('starter')
-    .controller('FinalizaPedidoController', function ($scope, $stateParams, $ionicPopup, $state, CarroService) {
+    .controller('FinalizaPedidoController', function ($scope, $stateParams, $ionicPopup, $state, CarroService, $ionicHistory) {
         $scope.carro = angular.fromJson($stateParams.carro);
-        console.log($scope.carro);
+        
         
         $scope.pedido = {};
          
@@ -17,20 +17,26 @@ angular
                 }
             }
 
-            console.log(pedidoFinalizado);
+            //console.log(pedidoFinalizado);
             
-            CarroService.salvarPedido(pedidoFinalizado).then(function(dados){
-                $ionicPopup.alert({
-                    title: 'Parabéns',
-                    template: 'Você acaba de comprar um carro.'
-                }).then(function(){
-                    $state.go('listagem')
-            }, function() {
-                $ionicPopup.alert({
-                title: 'Deu erro',
-                template: 'Campos obrigatórios'
+            CarroService.salvarPedido(pedidoFinalizado).then(
+                function(dados){
+
+                    $ionicHistory.nextViewOptions({
+                        disableBack : true
+                    })
+
+                    $ionicPopup.alert({
+                        title: 'Parabéns',
+                        template: 'Você acaba de comprar um carro.'
+                        }).then(function(){
+                            $state.go('app.listagem')});   
+                }, function(error) {
+                    console.log(error);
+                    $ionicPopup.alert({
+                    title: 'Deu erro',
+                    template: 'Campos obrigatórios'
+                    });
                 });
-            });   
-            });
         }
 });
