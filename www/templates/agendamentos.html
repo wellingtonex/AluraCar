@@ -4,11 +4,11 @@
             <ion-item ng-repeat="agendamento in agendamentos" ng-class="{falha: agendamento.confirmado == 'false'}">
                 <ion-option-button
                     ng-click="reenviar(agendamento)"
-                    class="button-positive"
+                    class="icon ion-paper-airplane"
                     ng-hide="agendamento.confirmado == 'true'">
                         Reenviar
                 </ion-option-button>
-                    {{agendamento.modelo}} - {{agendamento.preco}}
+                    {{agendamento.modelo}} - {{agendamento.preco |  finance:true:2}}
             </ion-item>
 
         </ion-list>

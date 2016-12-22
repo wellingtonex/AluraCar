@@ -32,3 +32,5 @@ cordova plugin add cordova-plugin-whitelist
 ionic run android --device
 
 bower install ionic-datepicker --save
+
+bower install angular-i18n

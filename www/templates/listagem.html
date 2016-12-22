@@ -3,7 +3,7 @@
     <ion-content>
         <ion-list>
           <ion-item ng-repeat="carro in carros" href="#/app/detalhe/{{carro}}">
-            {{carro.nome}} - R{{carro.preco | currency}}
+            {{carro.nome}} - {{carro.preco |  finance:true:2}}
         </ion-list>
     </ion-content>
 </ion-view>
